@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SAVE ME!</title>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+      .imgB1 { position:absolute; right: 0; bottom: 0; height: 70%;}
+      .imgA1 { position:absolute; right: 0; top:0; height:30%}
+      h2 { position: absolute; top: 200px; left: 500px; background: white; color:black; }
+    </style>
+    <script type="text/javascript">
+      var map;
+      function initMap() {
+        var myLatLng = {lat: 8.5572357, lng: 76.8764931};
+        map = new google.maps.Map(document.getElementById('map'), 
+                                  {center: {lat: 8.5572357, lng: 76.8764931},
+                                   zoom: 15
+                                  });
+        var marker = new google.maps.Marker({position: myLatLng,map: map,});
+      }
+    </script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFYaqceNHRGwftaBC6QYHXQmIicRrPgsw&callback=initMap">
+    </script>
+  </head>
+  
+  <body>
+    <div id="map"></div>
+    <img class=imgA1 src="static/images/cone.jpg" alt="Drag & Drop" width="265">
+    <img class=imgB1 src="static/images/roadcall.png" alt="Call Button" height="400" width="265">
+    {% if str1 %}
+        <a href="/"><h2 align="center">{{ str1 }}</h2></a>
+    {% endif %}
+    <a href="/"></a>
+  </body>
+</html>
